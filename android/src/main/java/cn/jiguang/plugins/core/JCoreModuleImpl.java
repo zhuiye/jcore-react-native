@@ -23,30 +23,26 @@ import java.util.Set;
 import cn.jiguang.api.utils.JCollectionAuth;
 import cn.jiguang.api.JCoreInterface;
 
-public class JCoreModule extends ReactContextBaseJavaModule {
+public class JCoreModuleImpl  {
 
-    public static ReactApplicationContext reactContext;
+   public static ReactApplicationContext reactContext;
 
+   public static final String NAME = "JCoreModule";
 
-    public JCoreModule(ReactApplicationContext reactApplicationContext) {
-        super(reactContext);
-        reactContext = reactApplicationContext;
+    public JCoreModuleImpl(ReactApplicationContext reactApplicationContext) {
+       reactContext = reactApplicationContext;
     }
 
-    @Override
-    public String getName() {
-        return "JCoreModule";
-    }
+  
 
-    @ReactMethod
     public void setAuth(boolean bool){
         JCollectionAuth.setAuth(reactContext,bool);
     }
-    @ReactMethod
+
     public void enableAutoWakeup(boolean bool) {
         JCollectionAuth.enableAutoWakeup(reactContext,bool);
     }
-    @ReactMethod
+
     public void setCountryCode(ReadableMap readableMap){
         if (readableMap == null) {
             return;
@@ -58,7 +54,6 @@ public class JCoreModule extends ReactContextBaseJavaModule {
         }
     }
 
-    @ReactMethod
     public void enableSDKLocalLog(ReadableMap readableMap){
         if (readableMap == null) {
             return;
@@ -74,7 +69,6 @@ public class JCoreModule extends ReactContextBaseJavaModule {
         JCoreInterface.enableSDKLocalLog(reactContext,enable,uploadJgToServer);
     }
 
-    @ReactMethod
     public void readNewLogs(Callback callback) {
         if (callback == null) {
             return;

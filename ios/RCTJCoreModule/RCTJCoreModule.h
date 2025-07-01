@@ -20,6 +20,14 @@
 #import <React/RCTRootView.h>
 #import <React/RCTBundleURLProvider.h>
 
+#ifdef RCT_NEW_ARCH_ENABLED
+
+#import <JCoreModuleSpec/JCoreModuleSpec.h>
+@interface RCTJPushModule: NSObject <NativeJCoreSpec>
+
+else 
 @interface RCTJCoreModule : RCTEventEmitter<RCTBridgeModule>
+
+#endif
 
 @end
