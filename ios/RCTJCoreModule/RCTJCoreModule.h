@@ -23,9 +23,10 @@
 #ifdef RCT_NEW_ARCH_ENABLED
 
 #import <JCoreModuleSpec/JCoreModuleSpec.h>
-@interface RCTJPushModule: NSObject <NativeJCoreSpec>
+@interface RCTJCoreModule: NSObject <NativeJCoreSpec>
 
-else 
+#else
+
 @interface RCTJCoreModule : RCTEventEmitter<RCTBridgeModule>
 
 #endif
